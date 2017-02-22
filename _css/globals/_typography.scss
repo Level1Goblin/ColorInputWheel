@@ -1,0 +1,61 @@
+@font-face {
+    font-family: futura_light;
+    src: url(../fonts/FuturaPTLight.otf);
+}
+@font-face {
+    font-family: futura_med;
+    src: url(../fonts/FuturaPTMedium.otf);
+}
+@font-face {
+    font-family: futura_book;
+    src: url(../fonts/FuturaPTBook.otf);
+}
+
+body {
+  font-family: $futura_light;
+  font-weight: 200;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  color: #222222;
+}
+
+h1 {
+  font-family: $futura_heavy;
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 1.5em;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+h2 {
+  font-family: $futura_light;
+  font-weight: 200;
+  font-size: 2.75rem;
+  line-height: 1em;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+h3 {
+  font-family: $futura_light;
+  font-weight: 200;
+  font-size: 1.75rem;
+  line-height: 1em;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+}
+p {
+  font-family: $futura_light;
+  font-weight: 200;
+  font-size: 1rem;
+  line-height: 1.5em;
+  letter-spacing: 0.1rem;
+  margin-bottom: 0.75rem;
+}
+li {
+  font-family: $futura_light;
+  font-weight: 200;
+  font-size: 1em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding-bottom: 0.75em;
+}

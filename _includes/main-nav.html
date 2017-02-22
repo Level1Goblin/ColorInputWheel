@@ -1,0 +1,117 @@
+{% assign getstartedpages = site.array %}
+{% assign getmotivatedpages = site.array %}
+{% assign partyplanningpages = site.array %}
+{% assign resourcepages = site.array %}
+{% assign whowearepages = site.array %}
+
+{% for i in site.pages %}
+  {% if i.category == 'get started' and i.type == 'process' %}
+    {% assign getstartedpages = getstartedpages | push: i %}
+  {% elsif i.category == 'rewards &amp; recognition' and i.type == 'process' %}
+    {% assign getmotivatedpages = getmotivatedpages | push: i %}
+  {% elsif i.type == 'resource-landing' and i.landing != true %}
+    {% assign resourcepages = resourcepages | push: i %}
+  {% elsif i.category == 'who we are' and i.landing != true %}
+    {% assign whowearepages = whowearepages | push: i %}
+  {% endif %}
+{% endfor %}
+
+<nav class="mainMenu__wrapper">
+  <ul class="mainMenu">
+    <li class="mainMenu__item{% if page.url contains 'get-started' %} mainMenu__item--active{% endif %}">
+      <a class="mainMenu__link" href="/get-started/">Get Started</a>
+      <span class="accordion is-visible-sm" aria-hidden="true">
+          <svg class="accordion__icon">
+            <title>Navigate sub menu</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#plus"></use>
+          </svg>
+        </span>
+      <ul class="mainMenu mainMenu--sub first">
+				{% assign landingprocess = (site.pages | sort: 'weight') %}
+				{% for node in landingprocess %}
+					{% if node.category == 'get started' and node.type == 'process' %}
+						<li class="mainMenu__item mainMenu__item--sub">
+							<a class="mainMenu__link mainMenu__link--sub" href="{{ node.permalink }}">
+								{{ node.sidenav_title }}
+							</a>
+						</li>
+					{% endif %}
+				{% endfor %}
+      </ul>
+    </li>
+    <li class="mainMenu__item{% if page.url contains 'get-motivated' %} mainMenu__item--active{% endif %}">
+      <a class="mainMenu__link" href="/get-motivated/">Get Motivated</a>
+      <span class="accordion is-visible-sm" aria-hidden="true">
+        <svg class="accordion__icon">
+          <title>Navigate sub menu</title>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#plus"></use>
+        </svg>
+      </span>
+      <ul class="mainMenu mainMenu--sub first">
+				{% assign landingprocess = (site.pages | sort: 'weight') %}
+				{% for node in landingprocess %}
+					{% if node.category == 'rewards &amp; recognition' and node.type == 'process' %}
+						<li class="mainMenu__item mainMenu__item--sub">
+							<a class="mainMenu__link mainMenu__link--sub" href="{{ node.permalink }}">
+								{{ node.sidenav_title }}
+							</a>
+						</li>
+					{% endif %}
+				{% endfor %}
+      </ul>
+    </li>
+    <li class="mainMenu__item{% if page.url contains 'plan-the-perfect-party' %} active{% endif %}">
+      <a class="mainMenu__link" target="_blank" href="http://partyplanning.pureromance.com/">Plan the Perfect Party</a>
+    </li>
+    <li class="mainMenu__item{% if page.url contains 'resources' %} mainMenu__item--active{% endif %}">
+      <a class="mainMenu__link" href="/resources/">Resources</a>
+      <span class="accordion is-visible-sm" aria-hidden="true">
+        <svg class="accordion__icon">
+          <title>Navigate sub menu</title>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#plus"></use>
+        </svg>
+      </span>
+      <ul class="mainMenu mainMenu--sub first">
+				{% assign landingprocess = (site.pages | sort: 'order') %}
+				{% for node in landingprocess %}
+					{% if node.type == 'resource-landing' %}
+						<li class="mainMenu__item mainMenu__item--sub">
+							<a class="mainMenu__link mainMenu__link--sub" href="{{ node.permalink }}">
+								{{ node.sidenav_title }}
+							</a>
+						</li>
+					{% endif %}
+				{% endfor %}
+      </ul>
+    </li>
+    <li class="mainMenu__item{% if page.url contains 'who-we-are' %} mainMenu__item--active{% endif %}">
+      <a class="mainMenu__link" href="/who-we-are/">Who We Are</a>
+      <span class="accordion is-visible-sm" aria-hidden="true">
+        <svg class="accordion__icon">
+          <title>Navigate sub menu</title>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#plus"></use>
+        </svg>
+      </span>
+      <ul class="mainMenu mainMenu--sub first">
+				{% assign landingprocess = (site.pages | sort: 'order') %}
+				{% for node in landingprocess %}
+					{% if node.category == 'who we are' and node.landing != true %}
+						<li class="mainMenu__item mainMenu__item--sub">
+							<a class="mainMenu__link mainMenu__link--sub" href="{{ node.permalink }}">
+								{{ node.sidenav_title }}
+							</a>
+						</li>
+					{% endif %}
+				{% endfor %}
+      </ul>
+    </li>
+    <li class="mainMenu__item is-hidden">
+      <a class="mainMenu__link mainMenu__link--search" href="#">
+        <svg class="svgIcon--search">
+            <title>Search Icon</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#search"></use>
+          </svg>
+      </a>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,33 @@
+title: New Consultant Site
+email: wnolen@pureromance.com
+description: > # this means to ignore newlines until "baseurl:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "getstarted.pureromance.com" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+sass:
+  sass_dir: _css
+include: ['_pages']
+include: ['_js']
+collections:
+  - collection-gs-how
+  - collection-gs-launch
+  - collection-gs-why
+  - collection-mo-glass
+  - collection-mo-green
+  - collection-mo-trips
+  - collection-mo-walk
+  - collection-glossary
+
+markdown: kramdown
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - package.json
+  - node_modules
+  - gulpfile.js
+
+array: []
